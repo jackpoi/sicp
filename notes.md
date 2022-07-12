@@ -3,7 +3,7 @@
 ## ChezScheme 内置函数
 
 - (random a)
-  生成小于 a 的随机数
+  生成 0~(a-1) 的随机数
 
 - (ceiling a)
   对 a 向上取整
@@ -12,11 +12,12 @@
   (ceiling 2.3) ; 3.0
   ```
 
-- (floor a)
+- (floor a) (round a)
      对 a 向下取整
 
      ```scheme
      (floor 2.6) ; 2.0
+     (round 2.6) ; 2.0
      ```
 
 - (abs a)
@@ -27,17 +28,54 @@
      (abs -3) ; 3
      ```
 
-- (sin a)
+- (gcd a b)
 
-     正弦函数 sin(a)
+     求 a,b 的最大公因数
 
-- (cos a)
+     ```scheme
+     (abs -3) ; 3
+     ```
 
-     余弦函数 cos(a)
+- (exp a)
 
-- (tan a)
+     e^a
 
-     正切函数 tan(a)
+     ```scheme
+     (exp 1) ; 2.718281828459045
+     ```
+
+- (expt a b)
+
+     a^b
+
+     ```scheme
+     (expt 2 3) ; 8=2^3
+     ```
+
+- (log a)
+
+     自然对数，ln(a)
+
+     ```scheme
+     (log 2.718281828459045) ; 1.0
+     (log (exp 2)) ; ln(e^2)=2.0
+     ```
+
+- (log a b)
+
+     以 b 为底 a 的对数
+
+     ```scheme
+     (log 4 2) ; log2(4)=2.0
+     ```
+
+- (quotient a b)
+
+     a 整除 b，即 a/b
+
+     ```scheme
+     (quotient 7 3) ; 2
+     ```
 
 - (remainder a b)
 
@@ -86,6 +124,58 @@
      (define (f a) (exact->inexact a)) ; 将a从整数转换为浮点数
      (f 2) ; 2.0
      (f (/ 4728779608739021 2251799813685248)) ; 2.1
+     ```
+
+- (list a b ...)
+
+     生成 list，简写：'(a b ...)
+
+     ```scheme
+     (list 2 3 4) ; (2 3 4)
+     ```
+
+- (pair? a)
+
+     判断 a 是不是一个序列或者 list
+
+     ```scheme
+     (pair? '(4 6 8)) ; #t
+     ```
+
+- (list? a)
+
+     判断 a 是不是一个 list
+
+     ```scheme
+     (list? '(4 6 8)) ; #t
+     ```
+
+- (append l1 l2 ...)
+
+     合并 list，生成新的 list
+
+     ```scheme
+     (append (list 2 3 4) (list 99 98)) ; (2 3 4 99 98)
+     ```
+
+- (sin a)
+
+     正弦函数 sin(a)
+
+- (cos a)
+
+     余弦函数 cos(a)
+
+- (tan a)
+
+     正切函数 tan(a)
+
+- (string-append s1 s2 ...)
+
+     拼接字符串
+
+     ```scheme
+     (string-append "q" "asd" "vv") ; "qasdvv"
      ```
 
 - (display f)
