@@ -1,4 +1,4 @@
-(load "D:/project/mine/sicp/1/lib/prime.ss")
+(load "D:/projects/mine/sicp/1/lib/prime.ss")
 
 ; 判断 n 是否为素数
 (define (prime? n) (= n (smallest-divisor n)))

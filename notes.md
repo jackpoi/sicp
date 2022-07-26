@@ -195,3 +195,14 @@
 
   退出交互
 
+- begin
+
+  在 if 语句中执行多条
+
+  ```scheme
+  (if (even? x)
+      (begin (display x) x)
+      (x)
+  )
+  ```
+

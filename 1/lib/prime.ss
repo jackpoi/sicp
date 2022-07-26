@@ -9,3 +9,6 @@
         (else (find-divisor n (+ guess 1)))
   )
 )
+
+; 判断 n 是否为素数
+(define (prime? n) (= n (smallest-divisor n)))
