@@ -1,0 +1,70 @@
+(load "D:/projects/mine/sicp/2/lib/segment.ss")
+
+; 面积、周长都由长宽求得，假设已经有两个函数可以求出矩形的长和宽
+; 求周长
+(define (perimeter-rect r)
+  (let ((length (length-rect r))
+        (width (width-rect r)))
+    (* 2 (+ length width))
+  )
+)
+; 求面积
+(define (area-rect r)
+  (let ((length (length-rect r))
+        (width (width-rect r)))
+    (* length width)
+  )
+)
+
+; 矩形定义1：传入两对线段->两长两宽，线段由两点定义
+(define (make-rect length1 length2 width1 width2)
+  (cons (cons length1 length2) (cons width1 width2))
+)
+; 获取矩形的长边线段l1 ((l1 l2) (w1 w2))
+(define (length-segment-rect r)
+  (car (car r))
+)
+; 获取矩形的宽边线段w1 ((l1 l2) (w1 w2))
+(define (width-segment-rect r)
+  (car (cdr r))
+)
+; 获取矩形的长度：长边线段的长度
+(define (length-rect r)
+  (segment-length (length-segment-rect r))
+)
+; 获取矩形的宽度：短边线段的长度
+(define (width-rect r)
+  (segment-length (width-segment-rect r))
+)
+
+(define length1 (make-segment (make-point 1 4) (make-point 4 4)))
+(define length2 (make-segment (make-point 1 2) (make-point 4 2)))
+(define width1 (make-segment (make-point 1 2) (make-point 1 4)))
+(define width2 (make-segment (make-point 4 2) (make-point 4 4)))
+(define rect (make-rect length1 length2 width1 width2))
+(display (perimeter-rect rect))
+(newline)
+(display (area-rect rect))
+
+; 矩形定义2：传入一对线段->长和宽，线段由两点定义
+(define (make-rect2 length width)
+  (cons length width)
+)
+; 获取矩形的长边线段l (l w)
+(define (length-segment-rect r)
+  (car r)
+)
+; 获取矩形的宽边线段w (l w)
+(define (width-segment-rect r)
+  (cdr r)
+)
+
+(define length (make-segment (make-point 1 2) (make-point 4 2)))
+(define width (make-segment (make-point 1 2) (make-point 1 4)))
+(define rect (make-rect2 length width))
+(newline)
+(display (perimeter-rect rect))
+(newline)
+(display (area-rect rect))
+
+(exit)

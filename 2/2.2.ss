@@ -1,0 +1,21 @@
+(load "D:/projects/mine/sicp/2/lib/segment.ss")
+
+(define (midpoint-segment segment)
+  (let ((x1 (x-point (start-segment segment)))
+        (y1 (y-point (start-segment segment)))
+        (x2 (x-point (end-segment segment)))
+        (y2 (y-point (end-segment segment)))
+       )
+    (make-point (/ (+ x1 x2) 2) (/ (+ y1 y2) 2))
+  )
+)
+
+(define start (make-point 0 3))
+(define end (make-point 4 0))
+(define seg (make-segment start end))
+(printf-segment seg)
+(printf-point (midpoint-segment seg))
+(newline)
+(display (segment-length seg))
+
+(exit)
