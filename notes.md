@@ -103,6 +103,14 @@
      (even? 8) ; #f
      ```
 
+- (max a b ...)
+
+     取出指定参数的最大值
+
+- (min a b ...)
+
+     取出指定参数的最小值
+
 - (exact a)
 
      返回 a 的精确数，即非浮点数
@@ -126,14 +134,6 @@
      (f (/ 4728779608739021 2251799813685248)) ; 2.1
      ```
 
-- (list a b ...)
-
-     生成 list，简写：'(a b ...)
-
-     ```scheme
-     (list 2 3 4) ; (2 3 4)
-     ```
-
 - (cons a b)
 
      生成序列
@@ -142,12 +142,42 @@
      (list 2 3) ; (2 3)
      ```
 
+- (car p)
+
+    获取序列的前一个
+
+- (cdr p)
+
+    获取序列的后一个
+
+- (list a b ...)
+
+     生成 list，简写：'(a b ...)
+     其实本质还是 cons 生成的序列，使用 list 简化了操作
+     (list 1 2 3 4) 等价于 (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+     ChezScheme 中 nil 不是关键字，使用 '() 表示，即 (cons 4 '())
+
+     ```scheme
+     (define l (list 2 3 4)) ; (2 3 4) => (2 (3 (4 nil)))
+     (car (cdr (cdr l))) ; 4
+     (cdr (cdr (cdr l))) ; () => nil
+     ```
+
 - (pair? a)
 
-     判断 a 是不是一个序列或者 list
+     判断 a 是不是一个序列
 
      ```scheme
      (pair? '(4 6 8)) ; #t
+     ```
+
+- (null? a)
+
+     判断 a 是不是空表
+
+     ```scheme
+     (null? '()) ; #t
+     (null? (cons 1 1)) ; #f
      ```
 
 - (list? a)
