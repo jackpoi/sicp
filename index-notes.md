@@ -91,6 +91,13 @@ length 获取列表长度，但是如果列表的元素也有列表，结果回�
 如果要计算全部列表长度，也就是书中的计算叶子节点，需要对列表中的每一个元素都进行 pair? 判断是否是列表，计算每个列表元素的长度
 
 ### 2.2.3 序列作为传统常见接口 Sequences as Conventional Interfaces 序列作为一种约定的界面
+
+#### 序列操作
+
+(filter predicate list) 过滤
+
+不过好像并不是 stream，而是每次操作都要进行遍历
+
 ### 2.2.4 实例: 一个图形语言 Example: A Picture Language
 ## 2.3 符号数据 Symbolic Data
 ### 2.3.1 引号 Quotation

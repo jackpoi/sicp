@@ -1,0 +1,20 @@
+(define x '(1 2 3))
+
+(define y '(4 5 6))
+
+; (1 (2 (3 (4 (5 (6 nil)))))) => (1 2 3 4 5 6)
+(display (append x y))
+(newline)
+(display (cdr (append x y)))
+(newline)
+; ((1 2 3) (4 5 6)) => ((1 2 3) 4 5 6)
+(display (cons x y))
+(newline)
+(display (cdr (cons x y)))
+(newline)
+; ((1 2 3) ((4 5 6) nil)) => ((1 2 3) (4 5 6))
+(display (list x y))
+(newline)
+(display (cddr (list x y)))
+
+(exit)
