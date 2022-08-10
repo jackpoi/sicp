@@ -101,6 +101,43 @@ length 获取列表长度，但是如果列表的元素也有列表，结果回�
 ### 2.2.4 实例: 一个图形语言 Example: A Picture Language
 ## 2.3 符号数据 Symbolic Data
 ### 2.3.1 引号 Quotation
+
+'(a b ...)，将括号内的值构造成表，相当于(quote (a b ...))
+
+(quote s) 是引用字符串
+     
+     ```scheme
+     (quote s) ; s
+     (quote (a b)) ; (a b)
+     (quote "123") ; 123
+     ```
+
+如 a = 2，(list a 3)是(2 3)，而'(a 3)其实是(a 3)，不会将变量的值进行构造
+
+```scheme
+(define a 1)
+(define b 2)
+(list a b) ; (1 2)
+'(a b) ; (a b)
+(quote (a b)) ; (a b)
+(list 'a b) ; (a 2)
+(quote (list 'a b)) ; (list 'a b)
+'('a b cc) ; ('a b cc)
+```
+
+`eq?`比较两个符号是否相同
+
+```scheme
+(define a 1)
+(eq? a '1) ; #t
+(eq? 'c 'c) ; #t
+(define abc "abc")
+(eq? abc abc) ; #t
+(eq? abc "abc") ; ChezScheme 9.5.8:#f, DrRacket 8.6:#t
+```
+
+很奇怪，使用chezscheme，`(eq? abc "abc")`是false的，看书上的注释中应该是相等的，然后下了一个DrRacket，再去比较居然是相等的了……麻了
+
 ### 2.3.2 实例: 符号求导 Example: Symbolic Differentiation 符号微分
 ### 2.3.3 实例: 集合的表示 Example: Representing Sets
 ### 2.3.4 实例: Huffman编码树 Example: Huffman Encoding Trees

@@ -152,7 +152,7 @@
 
 - (list a b ...)
 
-     生成 list，简写：'(a b ...)
+     生成 list
      其实本质还是 cons 生成的序列，使用 list 简化了操作
      (list 1 2 3 4) 等价于 (cons 1 (cons 2 (cons 3 (cons 4 nil))))
      ChezScheme 中 nil 不是关键字，使用 '() 表示，即 (cons 4 '())
@@ -161,6 +161,35 @@
      (define l (list 2 3 4)) ; (2 3 4) => (2 (3 (4 nil)))
      (car (cdr (cdr l))) ; 4
      (cdr (cdr (cdr l))) ; () => nil
+     ```
+
+- (quote s)
+
+     引用字符串
+     
+     ```scheme
+     (quote s) ; s
+     (quote (a b)) ; (a b)
+     (quote "123") ; 123
+     ```
+
+- (eq? a b)
+
+     比较两个符号是否相同
+     
+     ```scheme
+     (define a 1)
+     (eq? a '1) ; #t
+     (eq? 'c 'c) ; #t
+     ```
+
+- (symbol? a)
+
+     判断 a 是不是一个符号
+     
+     ```scheme
+     (symbol? 'a) ; #t
+     (symbol? 1) ; #f
      ```
 
 - (pair? a)

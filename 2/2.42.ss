@@ -1,6 +1,5 @@
 (load "D:/projects/mine/sicp/2/lib/enumerate.ss")
 (load "D:/projects/mine/sicp/2/lib/flatmap.ss")
-(load "D:/projects/mine/sicp/2/lib/foreach.ss")
 
 (define (queens board-size)
   (define (queens-cols k)
