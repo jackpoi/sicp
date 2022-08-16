@@ -139,7 +139,13 @@ length 获取列表长度，但是如果列表的元素也有列表，结果回�
 很奇怪，使用chezscheme，`(eq? abc "abc")`是false的，看书上的注释中应该是相等的，然后下了一个DrRacket，再去比较居然是相等的了……麻了
 
 ### 2.3.2 实例: 符号求导 Example: Symbolic Differentiation 符号微分
+
+(apply f list): 将list传入f进行操作
+
 ### 2.3.3 实例: 集合的表示 Example: Representing Sets
+
+这里的集合就是set，不重复的列表
+
 ### 2.3.4 实例: Huffman编码树 Example: Huffman Encoding Trees
 ## 2.4 抽象数据的多重表示 Multiple Representations for Abstract Data
 ### 2.4.1 复数的表示 Representations for Complex Numbers
