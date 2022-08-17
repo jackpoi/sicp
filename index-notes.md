@@ -146,6 +146,15 @@ length 获取列表长度，但是如果列表的元素也有列表，结果回�
 
 这里的集合就是set，不重复的列表
 
+#### 集合作为二叉树
+
+二叉排序树，左子树的值小于根节点的值，根节点的值小于右子树的值
+
+(make-tree entry left right)
+使用树来表示集合，而树又是用list表来表示的，这个就是在一种数据抽象上面构造另一种数据抽象
+
+二叉搜索树极端情况下可能会出现线性复杂度的情况，因为没有对树进行平衡操作
+
 ### 2.3.4 实例: Huffman编码树 Example: Huffman Encoding Trees
 ## 2.4 抽象数据的多重表示 Multiple Representations for Abstract Data
 ### 2.4.1 复数的表示 Representations for Complex Numbers
