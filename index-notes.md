@@ -170,8 +170,22 @@ Huffman编码其实就是一颗二叉树，叶子是被编码的字符，每个�
 
 ## 2.4 抽象数据的多重表示 Multiple Representations for Abstract Data
 ### 2.4.1 复数的表示 Representations for Complex Numbers
+
+复数可以由直角坐标系的实部虚部实现，也可以由极坐标系的幅角模长实现，
+实现复数运算时，使用对应的通用过程实现，而两种复数的实现方式也都实现了这些过程，那么就不需要关心复数具体是由哪种方式实现的，
+只要实现了通用过程，也就是进行了抽象屏障，两种方式都可以进行运算
+
+极坐标系：(r, A), (模长， 幅角)
+直角坐标系：(x, y), (实部， 虚部)
+x=rcosA, y=rsinA
+r=√(x2+y2), A=arctan(y, x)
+
 ### 2.4.2 带标志的数据 Tagged Data
 ### 2.4.3 数据导向程序设计和可加性 Data-Directed Programming and Additivity 数据导向的程序设计和可加性 
+
+这里的操作表类似于一种映射(map)，操作和类型一起组成了 key，对应的过程就是 value 
+调用过程时根据传入的操作和类型去寻找对应的过程来执行
+
 ## 2.5 带有通用型操作的系统 Systems with Generic Operations
 ### 2.5.1 通用型算数运算 Generic Arithmetic Operations
 ### 2.5.2 不同类型数据的组合 Combining Data of Different Types
