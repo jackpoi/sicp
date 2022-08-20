@@ -186,6 +186,15 @@ r=√(x2+y2), A=arctan(y, x)
 这里的操作表类似于一种映射(map)，操作和类型一起组成了 key，对应的过程就是 value 
 调用过程时根据传入的操作和类型去寻找对应的过程来执行
 
+通过 package 包机制来进行类型和操作的封装，
+需要添加新的类型时，只需要新编写一个 package 放入操作表，不需要改变之前的代码 
+需要添加新的操作时，也不需要改变之前的代码，可以在一个新的 package 中为每个类型添加新的过程
+
+#### 消息传递
+
+消息分发机制+面向对象？(幻视)
+看起来像是面向对象，将操作(方法)封装到每个类型(对象)
+
 ## 2.5 带有通用型操作的系统 Systems with Generic Operations
 ### 2.5.1 通用型算数运算 Generic Arithmetic Operations
 ### 2.5.2 不同类型数据的组合 Combining Data of Different Types
