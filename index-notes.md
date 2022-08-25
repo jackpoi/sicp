@@ -197,7 +197,18 @@ r=√(x2+y2), A=arctan(y, x)
 
 ## 2.5 带有通用型操作的系统 Systems with Generic Operations
 ### 2.5.1 通用型算数运算 Generic Arithmetic Operations
+
+定义通用型算数过程，像是定义了一个接口，再对每个类型实现接口，调用时根据tag判断是哪个实现
+
 ### 2.5.2 不同类型数据的组合 Combining Data of Different Types
+#### 类型的层次结构
+
+继承
+
+#### 层次结构的不足
+
+多继承问题
+
 ### 2.5.3 实例: 符号代数 Example: Symbolic Algebra
 # 3 模块化, 对象和状态 Modularity, Objects, and State
 ## 3.1 赋值和局部状态 Assignment and Local State
