@@ -214,14 +214,25 @@ r=√(x2+y2), A=arctan(y, x)
 ## 3.1 赋值和局部状态 Assignment and Local State
 ### 3.1.1 局部状态变量 Local State Variables
 ### 3.1.2 引进赋值带来的利益 The Benefits of Introducing Assignment
+
+(random x) 如果给的是整数，结果随机数也是整数，如果是浮点数，结果随机数也是浮点数
+
 ### 3.1.3 引进赋值的代价 The Costs of Introducing Assignment
 ## 3.2 求值的环境模型 The Environment Model of Evaluation
 ### 3.2.1 求值规则 The Rules for Evaluation
+
+环境模型：在将一个过程应用于一组实参时，会建立一个新的环境(上下文)，其中新定义的约束也就是局部变量
+
 ### 3.2.2 简单过程的应用 Applying Simple Procedures
 ### 3.2.3 框架作为局部状态的仓库 Frames as the Repository of Local State 将框架看作局部状态的展台
 ### 3.2.4 内部定义 Internal Definitions
 ## 3.3 通过变动数据建模 Modeling with Mutable Data 用变动数据做模拟
 ### 3.3.1 变动的表结构 Mutable List Structure
+
+`set-car!`,`set-cdr!`是对序列本身进行修改，会修改`car``cdr`指针的指向
+
+`append!`和`append`类似，会拼接两个序列，但是`append`是生成一个新的序列，不会修改原序列，`append!`会将后一个序列拼接到前一个序列的最后一个序对，会修改前一个序列本身的结构
+
 ### 3.3.2 队列的表示 Representing Queues
 ### 3.3.3 表格的表示 Representing Tables
 ### 3.3.4 数字电路的模拟器 A Simulator for Digital Circuits
