@@ -185,6 +185,17 @@
      (eq? 'c 'c) ; #t
      ```
 
+- (memq a b)
+
+     判断 a 是否在序列 b 中
+     memq 会不断的(car b)和 a 进行 eq? ，如果不相等会不断的对(cdr b)进行递归
+     详见练习 2.53
+     
+     ```scheme
+     (memq 'red '((red shoes) (blue socks))) ; (car b)=>(red shoes)=>eq? 'red=>false
+     (memq 'red '(red shoes blue socks)) ; (car b)=>red=>eq? 'red=>true
+     ```
+
 - (symbol? a)
 
      判断 a 是不是一个符号
