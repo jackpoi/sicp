@@ -235,10 +235,22 @@ r=√(x2+y2), A=arctan(y, x)
 
 ### 3.3.2 队列的表示 Representing Queues
 ### 3.3.3 表格的表示 Representing Tables
+
+一维表格，像是映射表
+
+assoc 根据 key 查询 value，遍历一维表格的 key 逐个对比，返回键值对，insert! 先遍历查出是否存在对应 key，再进行替换 value 或插入新键值对
+
+#### 二维表格
+
+二维表格是类似于 `Map<Map>` 的形式，查询时先判断一级 key 是否存在，存在就接着查询二级 key，插入也是，如果二级表格不存在，就创建新的二级表格并将构造键值对插入到表格中
+
 ### 3.3.4 数字电路的模拟器 A Simulator for Digital Circuits
 ### 3.3.5 约束的传播 Propagation of Constraints
 ## 3.4 并发: 时间至关重要 Concurrency: Time Is of the Essence 并发: 时间是一个本质问题
 ### 3.4.1 并发系统中时间的性质 The Nature of Time in Concurrent Systems
+
+经典的 ABA 问题
+
 ### 3.4.2 控制并发的机制 Mechanisms for Controlling Concurrency
 ## 3.5 流 Streams
 ### 3.5.1 流是延时的List Streams Are Delayed Lists 流作为延时的表

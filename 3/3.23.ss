@@ -1,3 +1,7 @@
+#|
+双端队列和普通队列的实现差不多，只不过多了队头插入和队尾删除
+执行插入删除操作时，根据队头队尾操作对应的队头队尾指针，更改指向即可
+|#
 (define (make-deque) (cons '() '()))
 
 (define (front-ptr deque) (car deque))
