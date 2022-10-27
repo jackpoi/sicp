@@ -252,6 +252,10 @@ assoc 根据 key 查询 value，遍历一维表格的 key 逐个对比，返回�
 经典的 ABA 问题
 
 ### 3.4.2 控制并发的机制 Mechanisms for Controlling Concurrency
+#### 串行化的实现
+
+串行化就是一种互斥锁，采用互斥元(mutex， mutual exclusion)的同步机制来实现的，每个串行化组关联着一个互斥元。 串行组中的过程将逐个获取互斥元，只有获得互斥元的过程才能执行
+
 ## 3.5 流 Streams
 ### 3.5.1 流是延时的List Streams Are Delayed Lists 流作为延时的表
 ### 3.5.2 无穷流 Infinite Streams
