@@ -285,6 +285,11 @@ ones 是全为 1 的流，integers 的首位是 1，让 integers 和 ones 两个
 ```
 
 ### 3.5.3 流范式的使用 Exploiting the Stream Paradigm 流计算模式的使用
+
+#### 序对的无穷流
+
+组合两个流，可以交替的从两个流中取出数据
+
 ### 3.5.4 流和延时求值 Streams and Delayed Evaluation
 ### 3.5.5 函数式程序的模块化和对象的模块化 Modularity of Functional Programs and Modularity of Objects
 # 4 元语言抽象 Metalinguistic Abstraction

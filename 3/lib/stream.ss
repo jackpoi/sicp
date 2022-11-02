@@ -120,3 +120,39 @@
 
 (define (scale-stream stream factor)
   (stream-map (lambda (x) (* x factor)) stream))
+
+; 序对的无穷流
+
+; 组合两个流，交替的从两个流中取出数据
+(define (interleave s1 s2)
+  (if (stream-null? s1)
+    s2
+    (cons-stream (stream-car s1)
+                 (interleave s2 (stream-cdr s1)))))
+
+(define (pairs s t)
+  (cons-stream
+    (list (stream-car s) (stream-car t)) ; 第一部分
+    (interleave
+      (stream-map (lambda (x) (list (stream-car s) x)) (stream-cdr t)) ; 第二部分
+      (pairs (stream-cdr s) (stream-cdr t))))) ; 第三部分：递归产生
+
+; 带权重的有序序对
+(define (merge-weighted s t weight)
+  (cond ((stream-null? s) t)
+        ((stream-null? t) s)
+        (else
+          (let ((scar (stream-car s))
+                (tcar (stream-car t)))
+            (if (> (weight (car scar) (cdr scar))
+                   (weight (car tcar) (cdr tcar))) ; 如果 scar 较大，就将其放到后面
+                    (cons-stream tcar (merge-weighted s (stream-cdr t) weight))
+                    (cons-stream scar (merge-weighted (stream-cdr s) t weight)))))))
+
+(define (weighted-pairs s t weight)
+  (cons-stream
+    (cons (stream-car s) (stream-car t))
+    (merge-weighted
+      (stream-map (lambda (x) (cons (stream-car s) x)) (stream-cdr t))
+      (weighted-pairs (stream-cdr s) (stream-cdr t) weight)
+      weight)))
